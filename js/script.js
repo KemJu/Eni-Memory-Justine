@@ -143,9 +143,31 @@ function creerPlateau(themeNom) {
   });
 }
 
-creerPlateau("legumes");
+creerPlateau("legumes"); /*TO REMOVE LATER, JUST FOR TESTING PURPOSES*/
 
 //Lancer une partie = (pas sûre de comprendre ce que ça veut dire en soi, genre, un bouton "Lancer une partie"?)
+//add options based on the themes in the tableauCorrespondanceMemoryImage array
+const select = document.getElementById("choosegame");
+
+tableauCorrespondanceMemoryImage.forEach((theme) => {
+  const option = document.createElement("option");
+
+  option.value = theme.nom;
+  option.textContent = theme.nom;
+
+  select.appendChild(option);
+});
+
+//add a button to start the game that has been selected in the options
+btnStart = document.getElementById("btnStart");
+btnStart.addEventListener("click", () => {
+  const select = document.getElementById("choosegame");
+  const selectedTheme = select.value;
+  creerPlateau(selectedTheme);
+});
+
+
+
 
 //Cliquer sur les cartes =
 
