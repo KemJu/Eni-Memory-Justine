@@ -1,0 +1,20 @@
+/* MOBILE */
+
+@media (max-width: 600px) {
+  main {
+    width: 95%;
+  }
+
+  #board {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  header {
+    padding: 1rem;
+  }
+
+  ul.menu li a {
+    padding: 0.5em;
+  }
+}

@@ -1,0 +1,116 @@
+/*GLOBAL STYLE FOR E V E R T H I N G*/
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+}
+
+/*HEADER*/
+
+header {
+  text-align: center;
+  padding: 1rem 1rem;
+  font-size: larger;
+}
+
+/*NAV*/
+
+ul.menu {
+  width: fit-content; /*as wide as items*/
+  max-width: 90%;
+  margin: 1em auto;
+  list-style-type: none;
+  padding: 1em;
+  background-color: rgb(45, 31, 31);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  border-radius: 2em;
+}
+
+ul.menu li a {
+  font-size: large;
+  text-decoration: none;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 0.5em 1.2em;
+}
+ul.menu li a:hover {
+  background-color: #a89c9c;
+}
+
+/* MAIN CONTENT */
+
+main {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* GAME RULES */
+
+/*box is the class for every container though*/
+.box {
+  width: fit-content; /* as wide as the text needs... */
+  max-width: min(90%, 40rem); /* ...but never wider than 40rem or the screen */
+  margin: 2rem auto; /* centered on the page */
+  padding: 1.5rem 2rem; /* equal air on both sides */
+
+  text-align: left; /* no more ragged justified lines */
+  color: white;
+  background-color: rgb(45, 31, 31);
+  border-radius: 2em;
+}
+
+#rules ul {
+  padding-left: 1.2rem; /* a small, even indent for the bullets */
+}
+
+#rules img {
+  display: block;
+  width: min(100%, 20rem); /* up to 20rem wide, never wider than the box */
+  height: auto;
+  margin: 1.5rem auto; /* auto left and right = centered image */
+}
+
+/*FORM*/
+
+input {
+  color: grey;
+  background-color: rgb(45, 31, 31);
+}
+
+/* BOARD */
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 15px;
+}
+
+/* IMAGES */
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+body {
+  background: #ffd89b; /* fallback for old browsers */
+  background: -webkit-linear-gradient(
+    to top,
+    #19547b,
+    #ffd89b
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to top,
+    #19547b,
+    #ffd89b
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}

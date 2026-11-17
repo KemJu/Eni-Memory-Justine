@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeu du Memory ENI</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/mobile.css" />
+    <link rel="stylesheet" href="css/tablet.css" />
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <h1>Jeu du Memory ENI</h1>
+    </header>
+
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="inscription.html">S'inscrire</a></li>
+        <li><a href="connexion.html">Se connecter</a></li>
+        <li><a href="profil.html">Profil</a></li>
+        <li><a href="jouer.html">Jouer</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="rules" class="box">
+        <p>
+          Bienvenue sur le site du Memory de l'ENI. <br />
+          Venez jouer avec nous et faites le meilleur score possible.
+        </p>
+        <h2>Règles du jeu :</h2>
+
+        <ul>
+          <li>
+            Retournez deux cartes. Si les images sont identiques, le jeu laisse
+            les cartes visibles.
+          </li>
+          <li>
+            Si les images sont différentes, les cartes se retournent faces
+            cachées là où elles étaient.
+          </li>
+          <li>
+            La partie est terminée lorsque toutes les cartes ont été assemblées
+            par paires.
+          </li>
+        </ul>
+        <img
+          src="ressources/memory-legume/memory_detail.png"
+          alt="exemple du jeu de memory thème légumes complété"
+          width="20%"
+          id="memorylegume"
+        />
+        <p>
+          Si vous voulez vous souvenir de votre score, inscrivez-vous via le
+          formulaire. <br />
+          Le jeu garde les <strong>5 meilleurs</strong> scores.<br />
+          Si vous voulez relancer une partie cliquez sur
+          <strong>la barre d'espace</strong>.
+        </p>
+      </section>
+
+      <section id="game">
+        <h2>Retrouvez les pairs!</h2>
+        <div id="board"></div>
+      </section>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>

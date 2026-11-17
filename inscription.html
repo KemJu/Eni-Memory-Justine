@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jeu du Memory ENI</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/mobile.css" />
+    <link rel="stylesheet" href="css/tablet.css" />
+    <script src="js/script.js" defer></script>
+  </head>
+
+  <body>
+    <header>
+      <h1>Inscription</h1>
+    </header>
+
+    <nav>
+      <ul class="menu">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="inscription.html">S'inscrire</a></li>
+        <li><a href="connexion.html">Se connecter</a></li>
+        <li><a href="profil.html">Profil</a></li>
+        <li><a href="jouer.html">Jouer</a></li>
+      </ul>
+    </nav>
+
+    <main>
+      <section id="formulaire" class="box">
+        <h2>Inscrivez-vous</h2>
+
+        <form action="" method="post">
+          <fieldset>
+            <label for="nom">Nom d'utilisateur :</label>
+            <input
+              type="text"
+              id="nom"
+              name="nom"
+              autofocus
+              required
+              placeholder="3 caractères minimum"
+              pattern=".{3,}"
+              title="Saisissez votre nom (3 caractères minimum)"
+            />
+
+            <br /><br />
+
+            <label for="email">Entrez votre email :</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Votre email"
+            />
+
+            <br /><br />
+
+            <label for="motdePasse">Entrez votre mot de passe :</label>
+            <input
+              type="password"
+              id="motdePasse"
+              name="motdePasse"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+              placeholder="Votre mot de passe"
+              title="Au moins un symbole, un chiffre, ainsi que 6 caractères minimum."
+            />
+            <p>
+              Au moins un symbole, un chiffre, ainsi que 6 caractères minimum.
+            </p>
+            <br />
+
+            <label for="confirmermotdePasse"
+              >Confirmez le mot de passe :
+            </label>
+            <input
+              type="password"
+              id="confirmermotdePasse"
+              name="confirmermotdePasse"
+              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+              placeholder="Confirmez le mot de passe"
+            />
+            <br />
+            <br />
+            <input type="reset" value="Réinitialiser" />
+            <input type="submit" value="S'inscrire" />
+          </fieldset>
+        </form>
+        <p>* champ obligatoire</p>
+      </section>
+    </main>
+
+    <footer></footer>
+  </body>
+</html>
