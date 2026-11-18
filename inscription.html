@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/tablet.css" />
     <link rel="stylesheet" href="css/mobile.css" />
-    <script src="js/script.js" defer></script>
+    <script src="js/scriptsubscribe.js" defer></script>
   </head>
 
   <body>
@@ -29,7 +29,7 @@
       <section id="formulaire" class="box">
         <h2>Inscrivez-vous</h2>
 
-        <form action="" method="post">
+        <form id="form" action="" method="post">
           <fieldset>
             <label for="nom">Nom d'utilisateur :</label>
             <input
@@ -63,7 +63,7 @@
               type="password"
               id="motdePasse"
               name="motdePasse"
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+              pattern="^[0-9a-zA-Z@$!%*?&]{6,}$"
               placeholder="Votre mot de passe"
               title="Au moins un symbole, un chiffre, ainsi que 6 caractères minimum."
             />
@@ -80,7 +80,7 @@
               type="password"
               id="confirmermotdePasse"
               name="confirmermotdePasse"
-              pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"
+              pattern="^[0-9a-zA-Z@$!%*?&]{6,}$"
               placeholder="Confirmez le mot de passe"
             />
             <br />
