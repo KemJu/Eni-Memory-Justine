@@ -83,22 +83,26 @@ const tableauCorrespondanceMemoryImage = [
     nombreCartes: 26,
   },
 ];
-
+let turnedCards = [];
+let foundCards = [];
+//lock will prevent the player from clicking on other cards while two mismatched cards are waiting to turn face down
+let lock = false;
 //Creating the board function
 function creerPlateau(themeNom) {
   if (!themeNom) return;
-  //resetting the variables
+  //resetting the variables because otherwise it doesn't work
   turnedCards = [];
   foundCards = [];
   lock = false;
-  // find the theme
+  // find the theme in the huge array and store it in theme
   const theme = tableauCorrespondanceMemoryImage.find(
     (theme) => theme.nom === themeNom,
   );
 
-  // loop pushing images in array
+  // loop storing as many images in the array "images" as there are numbers of cards in the selected theme
   const images = [];
   for (let i = 1; i <= theme.nombreCartes; i++) {
+    //works because i is not greater than nombreCartes and they are numbered 1,2,3....extension
     images.push(`${i}.${theme.extension}`);
   }
 
@@ -153,37 +157,6 @@ function melanger(tableau) {
   return tableau;
 }
 
-//Lancer une partie = X
-//-----------------------
-//add options based on the themes in the tableauCorrespondanceMemoryImage array
-const select = document.getElementById("choosegame");
-
-tableauCorrespondanceMemoryImage.forEach((theme) => {
-  const option = document.createElement("option");
-
-  option.value = theme.nom;
-  option.textContent = theme.nomAffiche;
-
-  select.appendChild(option);
-});
-
-//add a button to start the game that has been selected in the options
-//reminder that select is the liste déroulante with the options
-const btnStart = document.getElementById("btnStart");
-
-btnStart.addEventListener("click", () => {
-  const selectedTheme = select.value;
-  creerPlateau(selectedTheme);
-});
-
-//calling the function to have the clicks behaviour in the game
-activateClick();
-//initializing the arrays in which turnedCards, foundCards are stored
-let turnedCards = [];
-let foundCards = [];
-//lock will prevent the player from clicking on other cards while two mismatched cards are waiting to turn face down
-let lock = false;
-
 //Cliquer sur les cartes = X
 //---------------------------
 //Ajouter un effet de retournement de carte à chaque clic =
@@ -230,48 +203,95 @@ function verifierCartes() {
   const premiereID = premiereCarte.dataset.id;
   const deuxiemeID = deuxiemeCarte.dataset.id;
 
-  // If cards match
+  //If cards match
   if (premiereID === deuxiemeID) {
     foundCards.push(premiereCarte, deuxiemeCarte);
 
-    // Empty the temporary array
+    //Emptying the temporary array
     turnedCards = [];
 
-    // Check if the game is finished
+    //Checking if the game is finished
     if (foundCards.length === document.querySelectorAll(".card").length) {
       setTimeout(() => {
         alert("Bravo ! Vous avez trouvé toutes les paires !");
       }, 300);
     }
   } else {
-    // Lock the board
+    //Locking the board
     lock = true;
 
     //Retourner face cachée les cartes différentes après 5 secondes =
     //---------------------------------------------
-    // Wait 5 seconds before hiding the cards
+    //waiting 5 seconds before hiding the cards
     setTimeout(() => {
       premiereCarte.classList.remove("show");
       deuxiemeCarte.classList.remove("show");
 
-      // Empty the temporary array
+      //emptying the temporary array
       turnedCards = [];
 
-      // Unlock the board
+      //unlocking the board
       lock = false;
     }, 5000);
   }
 }
 
-//For the space bar event:
-/*document.addEventListener('keydown', function(event) {
-  // Vérifie si la touche pressée est la barre espace
-  if (event.code === 'Space' || event.key === ' ') {
-    event.preventDefault(); // Évite le défilement de la page par défaut
-    
-    const element = document.getElementById('monBouton');
-    if (element) {
-      element.click(); // Simule le clic
-    }
+//Resetting the game function
+function resetGame() {
+  creerPlateau(select.value);
+}
+
+//first doing the reset button behaviour
+const btnReset = document.getElementById("btnReset");
+
+btnReset.addEventListener("click", resetGame);
+
+//then doing the space bar behaviour, which are the same.
+document.addEventListener("keydown", function (event) {
+  if (event.code === "Space" || event.key === " ") {
+    event.preventDefault(); // Prevents page scrolling or double-triggering a focused button
+    resetGame();
   }
-});*/
+});
+
+/**Keep the currently selected theme.
+
+Empty the current board.
+
+Reset turnedCards.
+
+Reset foundCards.
+
+Set lock to false.
+
+Shuffle the cards again.
+
+Create a new board with all cards face down. */
+
+//Lancer une partie = X
+//-----------------------
+//add options based on the themes in the tableauCorrespondanceMemoryImage array
+//reminder that choosegame is the liste déroulante in the HTML
+const select = document.getElementById("choosegame");
+
+tableauCorrespondanceMemoryImage.forEach((theme) => {
+  const option = document.createElement("option");
+
+  option.value = theme.nom;
+  option.textContent = theme.nomAffiche;
+
+  select.appendChild(option);
+});
+
+//add a button to start the game that has been selected in the options
+//reminder that select is the liste déroulante with the options
+const btnStart = document.getElementById("btnStart");
+
+btnStart.addEventListener("click", () => {
+  const selectedTheme = select.value;
+  creerPlateau(selectedTheme);
+});
+
+//calling the function to have the clicks behaviour in the game
+activateClick();
+//initializing the arrays in which turnedCards, foundCards are stored

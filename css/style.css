@@ -82,8 +82,8 @@ main {
 /*FORM*/
 
 input {
-  color: grey;
-  background-color: rgb(45, 31, 31);
+  background-color: grey;
+  color: white;
 }
 
 /* BOARD */
@@ -98,6 +98,11 @@ input {
 #game.box {
   width: min(95%, 60rem);
   max-width: none;
+}
+
+#btnReset {
+  color: grey;
+  background-color: rgb(45, 31, 31);
 }
 
 /* IMAGES */
