@@ -94,6 +94,12 @@ input {
   gap: 15px;
 }
 
+/*bigger box for the game because the initial box is smoll*/
+#game.box {
+  width: min(95%, 60rem);
+  max-width: none;
+}
+
 /* IMAGES */
 
 img {
@@ -117,5 +123,4 @@ body {
   background-attachment: fixed;
   background-size: cover;
   min-height: 100vh;
-  
 }
