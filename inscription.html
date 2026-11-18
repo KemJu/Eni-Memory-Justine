@@ -33,6 +33,7 @@
           <fieldset>
             <label for="nom">Nom d'utilisateur :</label>
             <input
+              class="form"
               type="text"
               id="nom"
               name="nom"
@@ -47,6 +48,7 @@
 
             <label for="email">Entrez votre email :</label>
             <input
+              class="form"
               type="email"
               id="email"
               name="email"
@@ -57,6 +59,7 @@
 
             <label for="motdePasse">Entrez votre mot de passe :</label>
             <input
+              class="form"
               type="password"
               id="motdePasse"
               name="motdePasse"
@@ -73,6 +76,7 @@
               >Confirmez le mot de passe :
             </label>
             <input
+              class="form"
               type="password"
               id="confirmermotdePasse"
               name="confirmermotdePasse"
@@ -81,8 +85,8 @@
             />
             <br />
             <br />
-            <input type="reset" value="Réinitialiser" />
-            <input type="submit" value="S'inscrire" />
+            <input id="resetForm" type="reset" value="Réinitialiser" />
+            <input id="validateForm" type="submit" value="S'inscrire" />
           </fieldset>
         </form>
         <p>* champ obligatoire</p>
