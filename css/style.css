@@ -85,7 +85,10 @@ input {
   background-color: grey;
   color: white;
 }
-
+input::placeholder {
+  opacity: 0.5;
+  color: black;
+}
 /* BOARD */
 
 #board {
